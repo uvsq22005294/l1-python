@@ -1,12 +1,15 @@
 def syracuse(n):
     """ Retourne la liste des valeurs de la suite en partant de n jusqu'à 1 """
-    liste_entier = []
+    liste = []
     while (n != 1):
-        if (n % 2 == 0):
-            return n // 2
-        elif (n % 2 == 1):
-            return n * 3 + 1
-    return liste_entier.append(n)
+        if(n % 2 == 0):
+            x = n // 2
+            liste.append(x)
+        elif(n % 2 == 1):
+            x = n * 3 + 1
+            liste.append(x)
+        return liste
+    return liste
 
 
 print(syracuse(3))
