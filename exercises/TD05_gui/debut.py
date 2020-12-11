@@ -4,7 +4,7 @@ CANVAS_WIDTH, CANVAS_HEIGHT = 600, 400
 
 root = tk.Tk()
 
-canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT)
+canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 
 # Début de votre code
 x0 = 100
@@ -28,7 +28,7 @@ CANVAS_WIDTH, CANVAS_HEIGHT = 400, 600
 
 root = tk.Tk()
 
-canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT)
+canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT)
 
 # Début de votre code
 x = CANVAS_WIDTH / 2
@@ -73,8 +73,8 @@ root.mainloop()
 
 
 
-#difference entre grid() et pack()
-#dans les exemples précédent, on trouve grid(). On trouve pack() dans exemple 3 de gui
+'''# difference entre grid() et pack()
+# dans les exemples précédent, on trouve grid(). On trouve pack() dans exemple 3 de gui
 import tkinter as tk
 CANVAS_WIDTH, CANVAS_HEIGHT = 600, 400
 root = tk.Tk()
@@ -96,4 +96,4 @@ c = tk.Button(text="c", width=10, height=10)
 a.pack()
 b.pack()
 c.pack()
-root.mainloop()
+root.mainloop()'''

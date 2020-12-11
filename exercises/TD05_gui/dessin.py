@@ -6,34 +6,64 @@ CANVAS_WIDTH, CANVAS_HEIGHT = 500, 500
 root = tk.Tk()
 root.title("Mon Dessin")
 
-canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="white")
+canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="black")
+
+objets = []
+
+
+def choisir_couleur():
+    x = input("Enter a color: ")
+    global couleur
+    couleur = x
 
 
 def dessine_cercle():
     x = random.randint(50, CANVAS_WIDTH - 50)
     y = random.randint(50, CANVAS_HEIGHT - 50)
-    canvas.create_oval(x - 50, y - 50, x + 50, y + 50)
+    canvas.create_oval(x - 50, y - 50, x + 50, y + 50, fill=couleur)
+
+
+def dessine_carre():
+    x = random.randint(50, CANVAS_WIDTH - 50)
+    y = random.randint(50, CANVAS_HEIGHT - 50)
+    canvas.create_rectangle(x - 50, y - 50, x + 50, y + 50, fill=couleur)
+
+
+def dessine_croix():
+    x = random.randint(50, CANVAS_WIDTH - 50)
+    y = random.randint(50, CANVAS_HEIGHT - 50)
+    canvas.create_line(x - 50, y - 50, x + 50, y + 50, fill=couleur)
+    canvas.create_line(x - 50, y + 50, x + 50, y - 50, fill=couleur)
+
+
+def undo():
+    pass
+
 
 # Début du code
 
-couleur = tk.Button(root, text="Choisir une couleur", bg="yellow", fg="blue",
-                    font=("hervetica", "8"), pady=6, bd="6")
+couleur = tk.Button(root, text="Choisir une couleur", command=choisir_couleur,
+                    bg="blue", fg="white", font=("hervetica", "8"), pady=6, bd="6")
 cercle = tk.Button(root, text="Cercle", command=dessine_cercle, bg="blue",
                    fg="white", font=("hervetica", "8"), padx=10, bd="4")
-carre = tk.Button(root, text="Carré", bg="blue", fg="white",
-                  font=("hervetica", "8"), padx=10, bd="4")
-croix = tk.Button(root, text="Croix", bg="blue", fg="white",
-                  font=("hervetica", "8"), padx=10, bd="4")
+carre = tk.Button(root, text="Carré", command=dessine_carre, bg="blue",
+                  fg="white", font=("hervetica", "8"), padx=10, bd="4")
+croix = tk.Button(root, text="Croix", command=dessine_croix, bg="blue",
+                  fg="white", font=("hervetica", "8"), padx=10, bd="4")
+undo = tk.Button(root, text="Undo", command=undo,
+                 bg="blue", fg="white", font=("hervetica", "8"), pady=6, bd="6")
 
 couleur.grid(column=1, row=0)
 cercle.grid(column=0, row=1)
 carre.grid(column=0, row=2)
 croix.grid(column=0, row=3)
+undo.grid(column=2, row=0)
 
 # Fin du code
 
-canvas.grid(column=1, row=1, rowspan=3)
+canvas.grid(column=1, row=1, rowspan=3, columnspan=2)
 root.mainloop()
+print(objets)
 
 # Correction
 '''import tkinter as tk
